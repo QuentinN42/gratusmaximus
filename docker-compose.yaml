@@ -6,11 +6,16 @@ services:
         SERVICE: maximus
     ports:
       - "8080:8080"
+    environment:
+      DATABASE_URL: postgresql://postgres:password@db:5432/db
     healthcheck:
       test: python -c 'import httpx; httpx.get("http://localhost:8080/health")'
       interval: 1s
       timeout: 1s
       retries: 3
+    depends_on:
+      db:
+        condition: service_healthy
 
   db:
     image: postgres:13.9

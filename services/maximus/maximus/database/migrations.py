@@ -7,22 +7,17 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+import maximus
+
+_alembic_dir = os.path.dirname(os.path.dirname(maximus.__file__))
+
 logger = logging.getLogger(__name__)
 
 metadata = sqlalchemy.MetaData()
 __session_maker: sessionmaker | None = None
 
 
-def get_session_maker():
-    global __session_maker
-    if __session_maker is not None:
-        return __session_maker
-
-    DATABASE_URL = os.getenv('DATABASE_URL')
-    if not DATABASE_URL:
-        logger.error('DATABASE_URL is not set')
-        sys.exit(1)
-
+def run_migrations() -> None:
     logger.info('Running alembic migrations')
 
     res = Popen(
@@ -33,11 +28,22 @@ def get_session_maker():
         ],
         env=os.environ.copy(),
         stdin=PIPE,
-        cwd=os.path.dirname(os.path.dirname(__file__)),
+        cwd=_alembic_dir,
     ).wait()
     if res != 0:
         logger.error('Failed to run alembic migrations')
         sys.exit(res)
+
+
+def get_session_maker() -> sessionmaker:
+    global __session_maker
+    if __session_maker is not None:
+        return __session_maker
+
+    DATABASE_URL = os.getenv('DATABASE_URL')
+    if not DATABASE_URL:
+        logger.error('DATABASE_URL is not set')
+        sys.exit(1)
 
     engine = create_engine(
         DATABASE_URL,
