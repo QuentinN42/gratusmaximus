@@ -1,0 +1,13 @@
+services:
+  maximus:
+    build:
+      context: .
+      args:
+        SERVICE: maximus
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: python -c 'import httpx; httpx.get("http://localhost:8080/health")'
+      interval: 1s
+      timeout: 1s
+      retries: 3
