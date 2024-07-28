@@ -39,6 +39,5 @@
   ],
   "python.analysis.extraPaths": [
     "./sdk/gratus",
-    "./sdk/fibo"
   ],
 }
