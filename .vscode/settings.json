@@ -1,0 +1,40 @@
+{
+  "files.exclude": {
+    "**/.venv": true,
+    "**/__pycache__": true,
+    "**/.*_cache": true
+  },
+  "python.analysis.autoImportCompletions": true,
+  "python.defaultInterpreterPath": "./.venv/bin/python",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    "editor.rulers": [
+      80,
+      120
+    ]
+  },
+  "ruff.lint.args": [],
+  "black-formatter.args": [
+    "--skip-string-normalization",
+    "--line-length",
+    "80"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true,
+  "search.exclude": {
+    "__pycache__": true,
+    ".venv": true
+  },
+  "mypy-type-checker.ignorePatterns": [
+    "**/site-packages/**/*.py",
+    "**/*.egg-info",
+    ".vscode/*.py",
+    ".venv/**",
+    "*/.venv/**"
+  ],
+}
