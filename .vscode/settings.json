@@ -2,7 +2,8 @@
   "files.exclude": {
     "**/.venv": true,
     "**/__pycache__": true,
-    "**/.*_cache": true
+    "**/.*_cache": true,
+    "**/.pyproject.toml": true,
   },
   "python.analysis.autoImportCompletions": true,
   "python.defaultInterpreterPath": "./.venv/bin/python",
@@ -39,6 +40,7 @@
   ],
   "python.analysis.extraPaths": [
     "./sdk/gratus",
-    "./sdk/models"
+    "./sdk/models",
+    "./services/maximus",
   ],
 }

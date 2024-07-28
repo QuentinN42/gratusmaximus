@@ -1,7 +1,7 @@
 # Devlopement environement install
 SHELL=/bin/bash -euo pipefail -O globstar
 
-PROJS=$(shell find . -name pyproject.toml -exec dirname {} \;)
+PROJS=$(patsubst %/pyproject.toml,%/.pyproject.toml,$(shell find . -name pyproject.toml))
 SRC=sdk services
 
 SYSTEM_PYTHON=python3
@@ -15,10 +15,18 @@ lint: $(VENV) $(PROJS)
 	$(PYTHON) -m ruff check --fix $(SRC)
 	$(PYTHON) -m mypy $(SRC)
 
-%: $(VENV)
-	$(PIP) install -e $@[dev]
+.PHONY: clean
+clean:
+	@echo $(PROJS)
+	rm -rf .venv **/*.egg-info **/__pycache__ **/.pyproject.toml
 
-Makefile: ;
+.pyproject.toml: pyproject.toml
+	$(PIP) install -e .[dev]
+	cp "./pyproject.toml" "./.pyproject.toml"
+
+%/.pyproject.toml: %/pyproject.toml
+	$(PIP) install -e $(@D)[dev]
+	cp "$(@D)/pyproject.toml" "$(@D)/.pyproject.toml"
 
 $(VENV):
 	$(SYSTEM_PYTHON) -m venv $(VENV)

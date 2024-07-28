@@ -16,3 +16,6 @@ dev = [
   "ruff",
   "mypy",
 ]
+
+[tool.mypy]
+plugins = "sqlalchemy.ext.mypy.plugin,pydantic.mypy"
