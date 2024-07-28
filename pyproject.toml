@@ -1,11 +1,15 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = []
+
 [project]
 name = "gratus-maximus"
 version = "0.1"
 dependencies = []
 requires-python = ">=3.11"
-
-[tool.setuptools]
-py-modules = []
 
 [project.optional-dependencies]
 dev = [

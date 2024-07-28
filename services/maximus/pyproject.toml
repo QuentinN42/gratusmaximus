@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["maximus"]
+
+[project]
+name = "maximus"
+version = "0.1"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi",
+]
+
+[project.optional-dependencies]
+dev = [
+]

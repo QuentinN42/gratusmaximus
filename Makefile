@@ -7,7 +7,7 @@ SYSTEM_PYTHON=python3
 
 VENV=.venv
 PYTHON=$(VENV)/bin/python
-PIP=$(VENV)/bin/pip
+PIP=$(VENV)/bin/pip --disable-pip-version-check
 
 .PHONY: lint
 lint: $(VENV) $(PROJS)
