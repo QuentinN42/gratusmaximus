@@ -1,7 +1,7 @@
 # Devlopement environement install
 SHELL=/bin/bash -euo pipefail -O globstar
 
-PROJS=$(shell find . -name pyproject.toml -exec dirname {} \; | grep -v egg-info)
+PROJS=$(shell find . -name pyproject.toml -exec dirname {} \;)
 
 SYSTEM_PYTHON=python3
 
@@ -11,12 +11,13 @@ PIP=$(VENV)/bin/pip --disable-pip-version-check
 
 .PHONY: lint
 lint: $(VENV) $(PROJS)
-	@echo $^
 	$(PYTHON) -m ruff check --fix sdk services
-	$(PYTHON) -m mypy sdk services
+	$(PYTHON) -m mypy
 
-%: $(VENV) %/pyproject.toml
+%: $(VENV)
 	$(PIP) install -e $@[dev]
+
+Makefile: ;
 
 $(VENV):
 	$(SYSTEM_PYTHON) -m venv $(VENV)
