@@ -1,5 +1,4 @@
-from gratus import Event
+from maximus.main import main
 
 if __name__ == '__main__':
-    print('Hello from Maximus')
-    print(Event)
+    main()

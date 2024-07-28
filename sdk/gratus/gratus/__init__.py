@@ -1,4 +1,5 @@
-from pydantic import AwareDatetime, BaseModel
+from pydantic import AwareDatetime
+from pydantic.main import BaseModel
 
 
 class Event(BaseModel):

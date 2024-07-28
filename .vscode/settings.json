@@ -38,6 +38,7 @@
     "*/.venv/**"
   ],
   "python.analysis.extraPaths": [
-    "./sdk/gratus"
+    "./sdk/gratus",
+    "./sdk/fibo"
   ],
 }

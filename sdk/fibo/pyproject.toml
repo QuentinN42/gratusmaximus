@@ -3,13 +3,11 @@ build-backend = "setuptools.build_meta"
 requires = ["setuptools >= 61.0"]
 
 [tool.setuptools]
-py-modules = ["gratus"]
+py-modules = ["fibo"]
 
 [project]
-dependencies = [
-  "pydantic==2.8.2",
-]
-name = "gratus"
+dependencies = []
+name = "fibo"
 requires-python = ">=3.11"
 version = "0.1"
 
