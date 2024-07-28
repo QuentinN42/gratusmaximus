@@ -12,3 +12,7 @@ class Event(BaseModel):
     description: str
     """A long description of the event"""
     location: str
+    url: str
+    """The source url of the event to register"""
+    mandatory_registration: bool
+    """If you need to be registred to be accepted at the event"""
