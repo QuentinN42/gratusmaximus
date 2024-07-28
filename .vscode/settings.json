@@ -37,4 +37,7 @@
     ".venv/**",
     "*/.venv/**"
   ],
+  "python.analysis.extraPaths": [
+    "./sdk/gratus"
+  ],
 }

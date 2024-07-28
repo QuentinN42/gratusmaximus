@@ -2,6 +2,7 @@
 SHELL=/bin/bash -euo pipefail -O globstar
 
 PROJS=$(shell find . -name pyproject.toml -exec dirname {} \;)
+SRC=sdk services
 
 SYSTEM_PYTHON=python3
 
@@ -11,8 +12,8 @@ PIP=$(VENV)/bin/pip --disable-pip-version-check
 
 .PHONY: lint
 lint: $(VENV) $(PROJS)
-	$(PYTHON) -m ruff check --fix sdk services
-	$(PYTHON) -m mypy
+	$(PYTHON) -m ruff check --fix $(SRC)
+	$(PYTHON) -m mypy $(SRC)
 
 %: $(VENV)
 	$(PIP) install -e $@[dev]
