@@ -39,5 +39,6 @@
   ],
   "python.analysis.extraPaths": [
     "./sdk/gratus",
+    "./sdk/models"
   ],
 }

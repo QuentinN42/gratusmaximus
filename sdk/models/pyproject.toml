@@ -3,11 +3,13 @@ build-backend = "setuptools.build_meta"
 requires = ["setuptools >= 61.0"]
 
 [tool.setuptools]
-py-modules = ["gratus"]
+py-modules = ["models"]
 
 [project]
-dependencies = []
-name = "gratus"
+dependencies = [
+  "pydantic==2.8.2",
+]
+name = "models"
 requires-python = ">=3.11"
 version = "0.1"
 
