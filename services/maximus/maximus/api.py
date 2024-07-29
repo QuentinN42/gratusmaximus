@@ -1,6 +1,7 @@
 import logging
 import uuid
 
+import httpx
 from fastapi import Depends, FastAPI, HTTPException
 from models import Event
 from pydantic import BaseModel
@@ -29,8 +30,14 @@ def healthcheck() -> HealthResult:
 @app.post(
     "/v1/push",
     responses={
-        409: {"model": None, "description": "Unable to insert."},
-        501: {"model": None, "description": "Not implemented."},
+        httpx.codes.CONFLICT: {
+            "model": None,
+            "description": "Unable to insert data.",
+        },
+        httpx.codes.SERVICE_UNAVAILABLE: {
+            "model": None,
+            "description": "Unable to connect to backend service.",
+        },
     },
 )
 def data_v1(event: Event, db: Session = Depends(get_session)) -> StorageStatus:
