@@ -26,3 +26,10 @@ class DBEvent(Base):
             id=uuid.uuid4(),
             name=event.name,
         )
+
+
+class DBKeys(Base):
+    __tablename__ = 'keys'
+
+    id: Mapped[uuid.UUID] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(default='')

@@ -9,16 +9,26 @@ SYSTEM_PYTHON=python3
 VENV=.venv
 PYTHON=$(VENV)/bin/python
 PIP=$(VENV)/bin/pip --disable-pip-version-check
+ACTIVATE=source $(VENV)/bin/activate
 
-.PHONY: lint
+.PHONY: lint clean migrate db
+
 lint: $(VENV) $(PROJS)
 	$(PYTHON) -m ruff check --fix $(SRC)
 	$(PYTHON) -m mypy $(SRC)
 
-.PHONY: clean
 clean:
 	@echo $(PROJS)
 	rm -rf .venv **/*.egg-info **/__pycache__ **/.pyproject.toml
+
+db:
+	docker compose up -d --wait db
+
+db-wipe:
+	docker compose down -v
+
+migrate: db $(VENV) $(PROJS)
+	$(ACTIVATE) && ./scripts/make_helpers.sh migrate
 
 .pyproject.toml: pyproject.toml
 	$(PIP) install -e .[dev]
