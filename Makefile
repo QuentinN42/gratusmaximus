@@ -16,6 +16,9 @@ ACTIVATE=source $(VENV)/bin/activate
 up: migrate
 	docker compose up --build -d --wait
 
+down:
+	docker compose down
+
 lint: $(VENV) $(PROJS)
 	$(PYTHON) -m ruff check --fix $(SRC)
 	$(PYTHON) -m mypy $(SRC)
