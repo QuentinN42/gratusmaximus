@@ -1,13 +1,13 @@
 import logging
 import uuid
 
-import httpx
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import Depends, FastAPI, HTTPException, Security, status
 from models import Event
 from pydantic import BaseModel
 
 from maximus.database.inject import Session, get_session
 from maximus.database.schemas import DBEvent
+from maximus.security import auth
 
 logger = logging.getLogger(__name__)
 app = FastAPI()
@@ -30,17 +30,31 @@ def healthcheck() -> HealthResult:
 @app.post(
     "/v1/push",
     responses={
-        httpx.codes.CONFLICT: {
+        status.HTTP_401_UNAUTHORIZED: {
+            "model": None,
+            "description": "Invalid API key.",
+        },
+        status.HTTP_409_CONFLICT: {
             "model": None,
             "description": "Unable to insert data.",
         },
-        httpx.codes.SERVICE_UNAVAILABLE: {
+        status.HTTP_503_SERVICE_UNAVAILABLE: {
             "model": None,
             "description": "Unable to connect to backend service.",
         },
     },
 )
-def data_v1(event: Event, db: Session = Depends(get_session)) -> StorageStatus:
+def data_v1(
+    event: Event,
+    db: Session = Depends(get_session),
+    authenticated: bool = Security(auth),
+) -> StorageStatus:
+    if not authenticated:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Invalid or missing API Key",
+        )
+
     logger.info("Received event %s", event)
     if not db:
         raise HTTPException(status_code=501)
