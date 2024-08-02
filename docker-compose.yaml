@@ -30,3 +30,14 @@ services:
       interval: 1s
       timeout: 60s
       retries: 5
+
+  meetup:
+    build:
+      context: .
+      args:
+        SERVICE: gratters/meetup
+    environment:
+      TODO: env
+    depends_on:
+      maximus:
+        condition: service_healthy

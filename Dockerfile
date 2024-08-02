@@ -26,7 +26,6 @@ RUN <<EOF
 find . -name pyproject.toml -exec bash -c \
     'pip --disable-pip-version-check install --user --prefer-binary -e "$(dirname {})"' \;
 EOF
-COPY --chown=$USER:$USER . .
 COPY --chown=$USER:$USER services/${SERVICE} services/${SERVICE}
 
 
@@ -36,4 +35,4 @@ ARG SERVICE
 WORKDIR ${HOME}/sources/services/${SERVICE}
 
 COPY --from=sources ${HOME}/ ${HOME}/
-CMD ["bash", "-c", "python -m ${SERVICE}"]
+CMD ["bash", "-c", "echo \"${SERVICE}/\" | grep -q / || python -m \"${SERVICE}\" && python -m \"$(echo \"${SERVICE}\" | rev | cut -d/ -f1 | rev)\""]
