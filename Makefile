@@ -11,7 +11,7 @@ PYTHON=$(VENV)/bin/python
 PIP=$(VENV)/bin/pip --disable-pip-version-check
 ACTIVATE=source $(VENV)/bin/activate
 
-.PHONY: lint clean migrate db db-wipe up
+.PHONY: lint clean migrate db db-wipe up seed
 
 up: migrate
 	docker compose up --build -d --wait
@@ -32,6 +32,9 @@ db:
 
 db-wipe:
 	docker compose down -v
+
+seed: up
+	docker compose exec maximus ./scripts/seed.py
 
 migrate: db $(VENV) $(PROJS)
 	$(ACTIVATE) && ./scripts/make_helpers.sh migrate
