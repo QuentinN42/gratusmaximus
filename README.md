@@ -7,11 +7,11 @@ Never run out of free events to attend !
 ## ToDo list
 
 - [x] Database setup
-- [ ] Maximus accept and store events
+- [x] Maximus accept and store events
   - [x] Event model
   - [x] API key
-  - [ ] Database storage
-- [ ] gratter python sdk
+  - [x] Database storage
+- [x] gratter python sdk
 - [ ] implement a simple gratter
 - [ ] ICS frontend
 
