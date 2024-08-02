@@ -1,3 +1,5 @@
+from enum import Enum, auto
+
 from pydantic import AwareDatetime
 from pydantic.main import BaseModel
 
@@ -16,3 +18,7 @@ class Event(BaseModel):
     """The source url of the event to register"""
     mandatory_registration: bool
     """If you need to be registred to be accepted at the event"""
+
+
+class Gratters(Enum):
+    MEETUP = auto()
