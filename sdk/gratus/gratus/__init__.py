@@ -1,7 +1,7 @@
 import os
 
 import httpx
-from models import Event, Gratters
+from models import Event, Gratters, StorageStatus
 
 _HEALTH = 'health'
 _PUSH = 'v1/push'
@@ -53,6 +53,10 @@ class Gratter:
             content=event.model_dump_json(),
         )
         res.raise_for_status()
+        result = StorageStatus.model_validate_json(res.content)
+        print(
+            f'[INF] Stored {event.name} with id {result.id}. Link {event.url}'
+        )
 
     def healthy(self) -> bool:
         res = httpx.get(self.__remote + _HEALTH)

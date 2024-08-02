@@ -1,9 +1,7 @@
 import logging
-import uuid
 
 from fastapi import Depends, FastAPI, HTTPException, Security, status
-from models import Event
-from pydantic import BaseModel
+from models import Event, HealthResult, StorageStatus
 
 from maximus.database.inject import Session, get_session
 from maximus.database.schemas import DBEvent
@@ -11,15 +9,6 @@ from maximus.security import auth
 
 logger = logging.getLogger(__name__)
 app = FastAPI()
-
-
-class HealthResult(BaseModel):
-    healthy: bool
-
-
-class StorageStatus(BaseModel):
-    stored: bool = True
-    id: uuid.UUID
 
 
 @app.get("/health")

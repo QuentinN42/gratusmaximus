@@ -1,7 +1,17 @@
+import uuid
 from enum import Enum, auto
 
 from pydantic import AwareDatetime
 from pydantic.main import BaseModel
+
+
+class HealthResult(BaseModel):
+    healthy: bool
+
+
+class StorageStatus(BaseModel):
+    stored: bool = True
+    id: uuid.UUID
 
 
 class Event(BaseModel):
