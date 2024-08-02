@@ -1,3 +1,4 @@
+import datetime
 import logging
 import uuid
 
@@ -19,12 +20,24 @@ class DBEvent(Base):
 
     id: Mapped[uuid.UUID] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column()
+    date_start: Mapped[datetime.datetime] = mapped_column()
+    date_end: Mapped[datetime.datetime] = mapped_column()
+    description: Mapped[str] = mapped_column()
+    location: Mapped[str] = mapped_column()
+    url: Mapped[str] = mapped_column()
+    mandatory_registration: Mapped[bool] = mapped_column()
 
     @classmethod
     def from_model(cls, event: Event) -> 'DBEvent':
         return cls(
             id=uuid.uuid4(),
             name=event.name,
+            date_start=event.date_start,
+            date_end=event.date_end,
+            description=event.description,
+            location=event.location,
+            url=event.url,
+            mandatory_registration=event.mandatory_registration,
         )
 
 
