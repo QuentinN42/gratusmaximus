@@ -3,6 +3,9 @@ import os
 import httpx
 from models import Event, Gratters
 
+_HEALTH = 'health'
+_PUSH = 'v1/push'
+
 
 class Gratter:
     """A gratter is an object that can send some results to maximus."""
@@ -16,6 +19,9 @@ class Gratter:
         self.__remote = remote
         self.__api_key = api_key
         self.__gratter_type = gratter_type
+
+        if not self.healthy():
+            print(f"[WRN] Unable to health check {self.__remote}")
 
     @classmethod
     def from_env(
@@ -36,8 +42,8 @@ class Gratter:
 
     def send(self, event: Event) -> None:
         """Send the result to maximus."""
-        httpx.post(
-            self.__remote,
+        res = httpx.post(
+            self.__remote + _PUSH,
             headers={
                 'x-api-key': self.__api_key,
                 'x-gratter-type': self.__gratter_type.name,
@@ -46,3 +52,8 @@ class Gratter:
             },
             content=event.model_dump_json(),
         )
+        res.raise_for_status()
+
+    def healthy(self) -> bool:
+        res = httpx.get(self.__remote + _HEALTH)
+        return res.status_code == httpx.codes.OK
