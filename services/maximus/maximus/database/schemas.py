@@ -27,6 +27,8 @@ class DBEvent(Base):
     url: Mapped[str] = mapped_column()
     mandatory_registration: Mapped[bool] = mapped_column()
 
+    gratter: Mapped[str] = mapped_column()
+
     @classmethod
     def from_model(cls, event: Event) -> 'DBEvent':
         return cls(

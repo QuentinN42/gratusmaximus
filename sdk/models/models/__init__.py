@@ -32,3 +32,6 @@ class Event(BaseModel):
 
 class Gratters(Enum):
     MEETUP = auto()
+
+
+ALL_GRATTERS = {x.name for x in Gratters}
