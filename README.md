@@ -12,8 +12,8 @@ Never run out of free events to attend !
   - [x] API key
   - [x] Database storage
 - [x] gratter python sdk
-- [ ] implement a simple gratter
-- [ ] ICS frontend
+- [x] ICS frontend
+- [ ] implement gratters
 
 ## Software architecture
 
