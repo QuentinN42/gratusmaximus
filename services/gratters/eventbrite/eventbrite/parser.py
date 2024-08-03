@@ -1,5 +1,6 @@
 import datetime
 
+from checks import speak_food
 from models import Event
 from pydantic import BaseModel
 from pytz import timezone
@@ -60,7 +61,7 @@ class EBEvent(BaseModel):
         )
 
     def should_record(self) -> bool:
-        return True
+        return speak_food(self.name + "\n" + self.summary)
 
 
 class EventsPaginated(BaseModel):

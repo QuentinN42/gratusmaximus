@@ -39,6 +39,7 @@
     "*/.venv/**"
   ],
   "python.analysis.extraPaths": [
+    "./sdk/checks",
     "./sdk/gratus",
     "./sdk/models",
     "./services/maximus",
