@@ -35,4 +35,4 @@ ARG SERVICE
 WORKDIR ${HOME}/sources/services/${SERVICE}
 
 COPY --from=sources ${HOME}/ ${HOME}/
-CMD ["bash", "-c", "echo \"${SERVICE}/\" | grep -q / || python -m \"${SERVICE}\" && python -m \"$(echo \"${SERVICE}\" | rev | cut -d/ -f1 | rev)\""]
+CMD ["bash", "-c", "python -m \"$(echo \"${SERVICE}\" | rev | cut -d/ -f1 | rev)\""]
