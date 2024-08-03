@@ -22,4 +22,5 @@ version = "0.1"
 dev = [
   "sqlalchemy[mypy]",
   "types-icalendar",
+  "pytest",
 ]

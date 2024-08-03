@@ -15,6 +15,14 @@ class Base(DeclarativeBase):
 metadata = Base.metadata
 
 
+def date_to_utc(date: datetime.datetime) -> datetime.datetime:
+    if date.tzinfo is None:
+        logger.warning("No timezone info provided, assuming UTC")
+        return date.replace(tzinfo=datetime.timezone.utc)
+
+    return date.astimezone(datetime.timezone.utc).replace(tzinfo=None)
+
+
 class DBEvent(Base):
     __tablename__ = 'events'
 
@@ -34,8 +42,8 @@ class DBEvent(Base):
         return cls(
             id=uuid.uuid4(),
             name=event.name,
-            date_start=event.date_start,
-            date_end=event.date_end,
+            date_start=date_to_utc(event.date_start),
+            date_end=date_to_utc(event.date_end),
             description=event.description,
             location=event.location,
             url=event.url,

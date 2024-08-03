@@ -11,7 +11,7 @@ PYTHON=$(VENV)/bin/python
 PIP=$(VENV)/bin/pip --disable-pip-version-check
 ACTIVATE=source $(VENV)/bin/activate
 
-.PHONY: lint clean migrate db db-wipe up seed
+.PHONY: lint test clean migrate db db-wipe up seed
 
 up: migrate
 	docker compose up --build -d --wait
@@ -22,6 +22,9 @@ down:
 lint: $(VENV) $(PROJS)
 	$(PYTHON) -m ruff check --fix $(SRC)
 	$(PYTHON) -m mypy $(SRC)
+
+test: $(VENV) $(PROJS)
+	$(PYTHON) -m pytest $(SRC)
 
 clean:
 	@echo $(PROJS)
