@@ -1,10 +1,12 @@
 import logging
 
 from fastapi import Depends, FastAPI, Header, HTTPException, Security, status
+from fastapi.responses import PlainTextResponse
 from models import ALL_GRATTERS, Event, HealthResult, StorageStatus
 
 from maximus.database.inject import Session, get_session
 from maximus.database.schemas import DBEvent
+from maximus.ics import ics_from_db
 from maximus.security import auth
 
 logger = logging.getLogger(__name__)
@@ -73,3 +75,8 @@ def data_v1(
         logger.error("Failed to insert event %s", event)
         logger.exception(e)
         raise HTTPException(status_code=409)
+
+
+@app.get("/v1/ics", response_class=PlainTextResponse)
+def ics_v1(db: Session = Depends(get_session)) -> str:
+    return ics_from_db(db).to_ical().decode('utf-8')

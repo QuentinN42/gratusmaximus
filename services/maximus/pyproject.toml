@@ -12,6 +12,7 @@ dependencies = [
   "psycopg2-binary==2.9.9",
   "alembic==1.13.1",
   "uvicorn==0.30.5",
+  "icalendar==5.0.13",
 ]
 name = "maximus"
 requires-python = ">=3.11"
@@ -20,4 +21,5 @@ version = "0.1"
 [project.optional-dependencies]
 dev = [
   "sqlalchemy[mypy]",
+  "types-icalendar",
 ]
