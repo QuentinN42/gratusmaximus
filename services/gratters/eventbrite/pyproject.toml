@@ -6,7 +6,9 @@ requires = ["setuptools >= 61.0"]
 py-modules = ["eventbrite"]
 
 [project]
-dependencies = []
+dependencies = [
+  "pytz==2024.1",
+]
 name = "eventbrite"
 requires-python = ">=3.11"
 version = "0.1"
