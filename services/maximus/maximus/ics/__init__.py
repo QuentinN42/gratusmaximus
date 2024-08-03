@@ -1,7 +1,13 @@
+import datetime
+
 import icalendar
 from sqlalchemy.orm import Session
 
 from maximus.database.schemas import DBEvent
+
+
+def format_date(date: datetime.datetime) -> str:
+    return date.strftime('%Y%m%dT%H%M%SZ')
 
 
 def create_event(model: DBEvent) -> icalendar.Event:
@@ -14,8 +20,11 @@ def create_event(model: DBEvent) -> icalendar.Event:
         description=full_description,
         location=model.location,
         url=model.url,
-        dtstart=model.date_start.date(),
-        dtend=model.date_end.date(),
+        dtstart=format_date(model.date_start),
+        dtend=format_date(model.date_end),
+        # Required property
+        # https://www.kanzaki.com/docs/ical/dtstamp.html
+        dtstamp=format_date(model.date_start),
     )
 
     # Dont block time schedule in calendar
