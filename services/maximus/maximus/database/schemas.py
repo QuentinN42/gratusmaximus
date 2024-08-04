@@ -40,7 +40,7 @@ class DBEvent(Base):
     @classmethod
     def from_model(cls, event: Event) -> 'DBEvent':
         return cls(
-            id=uuid.uuid4(),
+            id=event.id,
             name=event.name,
             date_start=date_to_utc(event.date_start),
             date_end=date_to_utc(event.date_end),

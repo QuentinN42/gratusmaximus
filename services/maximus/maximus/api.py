@@ -6,6 +6,7 @@ from models import ALL_GRATTERS, Event, HealthResult, StorageStatus
 
 from maximus.database.inject import Session, get_session
 from maximus.database.schemas import DBEvent
+from maximus.database.upsert import upsert
 from maximus.ics import ics_from_db
 from maximus.security import auth
 
@@ -68,9 +69,9 @@ def data_v1(
     try:
         to_add = DBEvent.from_model(event)
         to_add.gratter = gratter
-        db.add(to_add)
+        added = upsert(db, to_add)
         db.commit()
-        return StorageStatus(id=to_add.id)
+        return StorageStatus(id=added.id)
     except Exception as e:
         logger.error("Failed to insert event %s", event)
         logger.exception(e)

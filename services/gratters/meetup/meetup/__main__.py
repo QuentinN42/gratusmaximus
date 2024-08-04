@@ -1,4 +1,5 @@
 import datetime
+import uuid
 
 from gratus import Gratter
 from models import Event, Gratters
@@ -8,6 +9,7 @@ print("meetup init success")
 
 gratter.send(
     Event(
+        id=uuid.UUID(int=42),
         name='test with other tz',
         date_start=datetime.datetime.now(
             tz=datetime.timezone(datetime.timedelta(hours=10))

@@ -36,7 +36,8 @@ db:
 db-wipe:
 	docker compose down -v
 
-seed: up
+seed:
+	docker compose up maximus --build -d
 	docker compose exec maximus ./scripts/seed.py
 
 migrate: db $(VENV) $(PROJS)

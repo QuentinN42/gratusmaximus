@@ -15,6 +15,8 @@ class StorageStatus(BaseModel):
 
 
 class Event(BaseModel):
+    id: uuid.UUID
+    """An unique idenfier of the event for deduplication purposes."""
     name: str
     """The name of the event"""
     date_start: AwareDatetime
@@ -36,3 +38,8 @@ class Gratters(Enum):
 
 
 ALL_GRATTERS = {x.name for x in Gratters}
+
+
+def consitent_uuid(gratter: Gratters, context: str) -> uuid.UUID:
+    """Return always the same UUID given the same context."""
+    return uuid.uuid5(uuid.UUID(int=gratter.value), context)

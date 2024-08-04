@@ -11,6 +11,7 @@ def evt(
     timezone: str = '',
 ) -> EBEvent:
     return EBEvent(
+        id='',
         start_date=start_date,
         start_time=start_time,
         timezone=timezone,
@@ -85,6 +86,7 @@ def test_date_parsed(
     [
         (
             EBEvent(
+                id='',
                 start_date='2024-09-19',
                 start_time='09:00',
                 end_date='2024-09-21',
@@ -101,6 +103,7 @@ def test_date_parsed(
         ),
         (
             EBEvent(
+                id='',
                 start_date='2024-09-05',
                 start_time='08:45',
                 end_date='2024-09-05',

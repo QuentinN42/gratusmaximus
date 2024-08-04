@@ -1,7 +1,7 @@
 import datetime
 
 from checks import speak_food
-from models import Event
+from models import Event, Gratters, consitent_uuid
 from pydantic import BaseModel
 from pytz import timezone
 from pytz.tzinfo import DstTzInfo, StaticTzInfo
@@ -17,6 +17,7 @@ class PrimaryVenue(BaseModel):
 
 class EBEvent(BaseModel):
     # For event purposes
+    id: str
     start_date: str
     start_time: str
     end_date: str
@@ -51,6 +52,7 @@ class EBEvent(BaseModel):
 
     def to_event(self) -> Event:
         return Event(
+            id=consitent_uuid(Gratters.EVENTBRITE, self.id),
             name=self.name,
             description=self.summary,
             date_start=self.start,

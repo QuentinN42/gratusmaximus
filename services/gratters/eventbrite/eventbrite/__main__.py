@@ -11,7 +11,8 @@ def main() -> None:
     gratter = Gratter.from_env(Gratters.EVENTBRITE)
     print("Gratter init success")
 
-    events = parse_response(get_data())
+    raw = get_data()
+    events = parse_response(raw)
     print(f"Found : {len(events)} events")
 
     for event in events:

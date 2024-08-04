@@ -1,4 +1,5 @@
 import datetime
+import uuid
 
 import pytest
 from models import Event
@@ -47,6 +48,7 @@ def test_datetime_parsed_to_utc(
     expected: datetime.datetime,
 ):
     event = Event(
+        id=uuid.UUID(int=42),
         date_start=provided,
         date_end=provided,
         name="",
