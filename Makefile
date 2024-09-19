@@ -11,7 +11,9 @@ PYTHON=$(VENV)/bin/python
 PIP=$(VENV)/bin/pip --disable-pip-version-check
 ACTIVATE=source $(VENV)/bin/activate
 
-.PHONY: lint test clean migrate db db-wipe up seed
+DOCKER_REPO=quentinn42/gratusmaximus
+
+.PHONY: lint test clean migrate db db-wipe up seed push-docker-images
 
 up: migrate
 	docker compose up --build -d --wait
@@ -53,3 +55,8 @@ migrate: db $(VENV) $(PROJS)
 
 $(VENV):
 	$(SYSTEM_PYTHON) -m venv $(VENV)
+
+push-docker-images:
+	docker build --push --build-arg SERVICE=maximus -t $(DOCKER_REPO):maximus-latest .
+	docker build --push --build-arg SERVICE=gratters/meetup -t $(DOCKER_REPO):meetup-latest .
+	docker build --push --build-arg SERVICE=gratters/eventbrite -t $(DOCKER_REPO):eventbrite-latest .
