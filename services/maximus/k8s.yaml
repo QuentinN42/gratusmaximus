@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maximus
+  labels:
+    app: maximus
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: maximus
+  template:
+    metadata:
+      labels:
+        app: maximus
+    spec:
+      containers:
+        - name: maximus
+          image: quentinn42/gratusmaximus:maximus-latest
+          ports:
+            - containerPort: 8080
+              name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: maximus
+  labels:
+    app: maximus
+spec:
+  ports:
+    - port: 80
+      targetPort: http
+  selector:
+    app: maximus

@@ -13,7 +13,7 @@ ACTIVATE=source $(VENV)/bin/activate
 
 DOCKER_REPO=quentinn42/gratusmaximus
 
-.PHONY: lint test clean migrate db db-wipe up seed push-docker-images
+.PHONY: lint test clean migrate db db-wipe up seed push-docker-images deploy
 
 up: migrate
 	docker compose up --build -d --wait
@@ -60,3 +60,6 @@ push-docker-images:
 	docker build --push --build-arg SERVICE=maximus -t $(DOCKER_REPO):maximus-latest .
 	docker build --push --build-arg SERVICE=gratters/meetup -t $(DOCKER_REPO):meetup-latest .
 	docker build --push --build-arg SERVICE=gratters/eventbrite -t $(DOCKER_REPO):eventbrite-latest .
+
+deploy:
+	./scripts/deploy.sh
