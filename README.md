@@ -32,5 +32,8 @@ Gratters are simple scripts that can push events to Maximus. They are written in
 
 Here is the list of the implemented and planned gratters:
 
+- [x] [Eventbrite](https://www.eventbrite.com/)
 - [ ] [Meetup](https://www.meetup.com/)
-- [ ] [Eventbrite](https://www.eventbrite.com/)
+- [ ] [Lu.ma](https://lu.ma/)
+- [ ] [SplashThat](https://splashthat.com)
+
