@@ -190,6 +190,7 @@ resource "kubernetes_ingress_v1" "ingress" {
       hosts = [
         var.host
       ]
+      secret_name = "tls-${local.name}"
     }
   }
 }

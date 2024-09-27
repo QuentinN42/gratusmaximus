@@ -61,3 +61,7 @@ push-docker-images:
 	docker build --push --build-arg SERVICE=maximus -t $(DOCKER_REPO):maximus-$(DOCKER_HASH) .
 	docker build --push --build-arg SERVICE=gratters/meetup -t $(DOCKER_REPO):meetup-$(DOCKER_HASH) .
 	docker build --push --build-arg SERVICE=gratters/eventbrite -t $(DOCKER_REPO):eventbrite-$(DOCKER_HASH) .
+
+deploy:
+	$(MAKE) push-docker-images
+	(cd kube && terraform apply -var "hash=$(DOCKER_HASH)")
