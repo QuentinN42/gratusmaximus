@@ -1,6 +1,10 @@
 terraform {
   required_version = ">= 1.0"
 
+  backend "kubernetes" {
+    secret_suffix = "gratusmaximus"
+  }
+
   required_providers {
     kubernetes = {
       source  = "hashicorp/kubernetes"
@@ -21,9 +25,6 @@ variable "k8s_config_context" {
   type = string
 }
 
-provider "kubernetes" {
-  config_path    = var.k8s_config_path
-  config_context = var.k8s_config_context
-}
+provider "kubernetes" {}
 
 provider "random" {}

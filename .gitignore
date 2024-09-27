@@ -3,3 +3,4 @@
 __pycache__
 .pyproject.toml
 tmp*
+.env

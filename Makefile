@@ -64,4 +64,4 @@ push-docker-images:
 
 deploy:
 	$(MAKE) push-docker-images
-	(cd kube && terraform init -upgrade && terraform apply -var "hash=$(DOCKER_HASH)")
+	(cd kube && set -o allexport && source .env && set +o allexport && terraform init -upgrade && terraform apply -var "hash=$(DOCKER_HASH)")
