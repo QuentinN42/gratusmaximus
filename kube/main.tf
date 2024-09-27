@@ -26,3 +26,17 @@ module "gratus" {
 
   host = "gratusmaximus.tools.escape.tech"
 }
+
+locals {
+  gratters = toset([for s in fileset("${path.module}/../services/gratters", "*/**/*") :
+    replace(s, "/\\/.*/", "")
+  ])
+}
+
+module "api_keys" {
+  depends_on = [module.ns, module.gratus]
+  source     = "./modules/api_keys"
+
+  ns   = module.ns.name
+  reqs = local.gratters
+}
