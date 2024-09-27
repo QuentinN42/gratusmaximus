@@ -15,7 +15,7 @@ variable "host" {
 }
 
 locals {
-  name = "gratus"
+  name = "maximus"
   labels = {
     "app.kubernetes.io/managed-by" = "terraform"
     "app.kubernetes.io/name"       = local.name

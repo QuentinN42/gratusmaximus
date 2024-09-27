@@ -16,9 +16,9 @@ module "db" {
   ns = module.ns.name
 }
 
-module "gratus" {
+module "maximus" {
   depends_on = [module.ns, module.db]
-  source     = "./modules/gratus"
+  source     = "./modules/maximus"
 
   image        = "quentinn42/gratusmaximus:maximus-${var.hash}"
   ns           = module.ns.name
@@ -34,7 +34,7 @@ locals {
 }
 
 module "api_keys" {
-  depends_on = [module.ns, module.gratus]
+  depends_on = [module.ns, module.maximus]
   source     = "./modules/api_keys"
 
   ns   = module.ns.name
