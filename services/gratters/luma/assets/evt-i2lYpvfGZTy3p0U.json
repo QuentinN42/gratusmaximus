@@ -1,0 +1,417 @@
+{
+  "api_id": "evt-i2lYpvfGZTy3p0U",
+  "calendar": {
+    "access_level": "public",
+    "api_id": "cal-SA41YAvWiEEnYPm",
+    "archived_at": null,
+    "avatar_url": "https://cdn.lu.ma/avatars-default/community_avatar_6.png",
+    "cover_image_url": "https://images.lumacdn.com/calendar-defaults/patterns/stairs-100.png",
+    "description_short": null,
+    "fb_pixel_id": null,
+    "geo_city": null,
+    "geo_country": null,
+    "geo_latitude": null,
+    "geo_longitude": null,
+    "geo_region": null,
+    "google_measurement_id": null,
+    "instagram_handle": null,
+    "launch_status": null,
+    "linkedin_handle": null,
+    "luma_plus_active": false,
+    "name": "Personal",
+    "personal_user_api_id": "usr-nyLy9XtyEXuV3rZ",
+    "refund_policy": null,
+    "slug": null,
+    "social_image_url": null,
+    "stripe_account_id": null,
+    "tax_config": null,
+    "team_api_id": null,
+    "tiktok_handle": null,
+    "timezone": null,
+    "tint_color": "#de3163",
+    "twitter_handle": null,
+    "verified_at": null,
+    "website": null,
+    "youtube_handle": null,
+    "payment_methods": [],
+    "charges_enabled": null,
+    "is_personal": true
+  },
+  "fb_pixel_id": null,
+  "google_measurement_id": null,
+  "farcaster_frame_enabled": false,
+  "stripe_account_id": null,
+  "payment_methods": [],
+  "event": {
+    "api_id": "evt-i2lYpvfGZTy3p0U",
+    "calendar_api_id": "cal-SA41YAvWiEEnYPm",
+    "cover_url": "https://images.lumacdn.com/event-covers/20/677763f7-21e9-47f3-b726-53460beaa2af",
+    "end_at": "2024-10-03T08:30:00.000Z",
+    "event_type": "independent",
+    "hide_rsvp": false,
+    "location_type": "offline",
+    "name": "Climate Coffee in Paris",
+    "one_to_one": true,
+    "recurrence_id": null,
+    "show_guest_list": false,
+    "start_at": "2024-10-03T06:30:00.000Z",
+    "timezone": "Europe/Paris",
+    "url": "f5uzlkr4",
+    "user_api_id": "usr-nyLy9XtyEXuV3rZ",
+    "visibility": "public",
+    "waitlist_enabled": false,
+    "can_register_for_multiple_tickets": false,
+    "duration_interval": "P0Y0M0DT2H0M0S",
+    "virtual_info": {
+      "has_access": false
+    },
+    "geo_longitude": "2.34250",
+    "geo_latitude": "48.86750",
+    "geo_address_info": {
+      "mode": "obfuscated",
+      "city_state": "Paris, Île-de-France"
+    },
+    "geo_address_visibility": "guests-only"
+  },
+  "start_at": "2024-10-03T06:30:00.000Z",
+  "guest_data": {
+    "email": null,
+    "name": null,
+    "ticket_key": null,
+    "meeting_details": {
+      "approval_status": null,
+      "proxy_key": null
+    },
+    "approval_status": null,
+    "session_details": null,
+    "proxy_key": null,
+    "event_tickets": [],
+    "payments": []
+  },
+  "featured_guests": [],
+  "refund_policy": null,
+  "guest_count": 0,
+  "ticket_count": 0,
+  "hosts": [
+    {
+      "api_id": "usr-nyLy9XtyEXuV3rZ",
+      "avatar_url": "https://cdn.lu.ma/avatars-default/avatar_25.png",
+      "bio_short": null,
+      "instagram_handle": null,
+      "last_online_at": "2024-09-24T11:50:53.526Z",
+      "linkedin_handle": null,
+      "name": "Rebecca Ravenni",
+      "tiktok_handle": null,
+      "timezone": "Europe/Paris",
+      "twitter_handle": null,
+      "username": null,
+      "website": null,
+      "youtube_handle": null,
+      "is_visible": true,
+      "access_level": "manager"
+    },
+    {
+      "api_id": "usr-fWdvSOhkbQhMX3F",
+      "avatar_url": "https://images.lumacdn.com/avatars/96/d7c17f74-542e-45c4-8387-821f49708afa",
+      "bio_short": "Climate tech investor @Founders Future",
+      "instagram_handle": null,
+      "last_online_at": "2024-09-26T08:14:23.868Z",
+      "linkedin_handle": "/in/thomas-bajas",
+      "name": "Thomas Bajas",
+      "tiktok_handle": null,
+      "timezone": "Europe/Rome",
+      "twitter_handle": "ThomasBajas",
+      "username": null,
+      "website": null,
+      "youtube_handle": "",
+      "is_visible": true,
+      "access_level": "manager"
+    }
+  ],
+  "referred_by": null,
+  "cover_image": {
+    "vibrant_color": null,
+    "colors": [
+      "#fefefe",
+      "#2166a6",
+      "#143c80",
+      "#a22a32"
+    ]
+  },
+  "sessions": [],
+  "ticket_types": [
+    {
+      "api_id": "evtticktyp-LElBirExS4fBM6W",
+      "cents": null,
+      "currency": null,
+      "description": null,
+      "ethereum_token_requirements": [],
+      "event_api_id": "evt-i2lYpvfGZTy3p0U",
+      "is_flexible": false,
+      "max_capacity": null,
+      "min_cents": null,
+      "name": "Standard",
+      "require_approval": false,
+      "type": "free",
+      "valid_end_at": null,
+      "valid_start_at": null,
+      "position": "5",
+      "num_tickets_registered": 126,
+      "currency_info": null,
+      "num_guests": 126
+    }
+  ],
+  "featured_infos": [
+    {
+      "type": "discover",
+      "avatar_url": "https://images.lumacdn.com/discovery/paris-icon.png",
+      "tint_color": "#ce8f5c",
+      "name": "Paris",
+      "name_raw": "Paris",
+      "path": "/paris?k=p"
+    }
+  ],
+  "categories": [],
+  "ticket_info": {
+    "price": null,
+    "is_free": true,
+    "max_price": null,
+    "is_sold_out": false,
+    "spots_remaining": 28,
+    "is_near_capacity": false,
+    "require_approval": false,
+    "currency_info": null
+  },
+  "subscribed_to_calendar": false,
+  "event_invite": null,
+  "role": null,
+  "sold_out": false,
+  "locale": "en",
+  "series_info": {
+    "require_rsvp_approval": false,
+    "series_registration_mode": null,
+    "session_price_cents": null,
+    "ticket_currency": "usd",
+    "ticket_price_cents": null
+  },
+  "theme_meta": {
+    "name": "Lavender",
+    "type": "shader",
+    "theme": "shader-light",
+    "color1": "#ebd9ff",
+    "color2": "#d4a1f9",
+    "color3": "#eeb8ff"
+  },
+  "tint_color": "#d4a1f9",
+  "crypto_token_requirements": [],
+  "can_register_for_multiple_tickets": false,
+  "font_title": null,
+  "description_mirror": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Founders Future",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "text": " & ",
+            "type": "text"
+          },
+          {
+            "text": "Techstars Sustainability Paris",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "text": " are inviting you to Climate Coffee that this time will take place at Techstars' office in Paris",
+            "type": "text"
+          },
+          {
+            "type": "hard_break"
+          },
+          {
+            "type": "hard_break"
+          },
+          {
+            "text": "Climate Coffee is ",
+            "type": "text"
+          },
+          {
+            "text": "built on the idea of creating an open community for anyone interested in climate",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "text": ", whether you’re operating, investing, studying in or just exploring the space.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "This is based on the belief that ",
+            "type": "text"
+          },
+          {
+            "text": "time is of the essence when it comes to tackling climate change",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "text": ", and that by fostering connections and helping to develop local ecosystems, we might be able to increase the pace of change and adoption of new technologies and new ideas across the world.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Here the supporters helping getting this initiative off the ground:",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "bullet_list",
+        "content": [
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "text": "Thomas Bajas",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "https://www.linkedin.com/in/thomas-bajas/"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "text": " @",
+                    "type": "text"
+                  },
+                  {
+                    "text": "Founders Future",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ]
+                  },
+                  {
+                    "text": " - a French early stage VC investing in European tech startups and supporting founders into building the backbone of their business. Climate Tech is one of the two main pillars of the thesis with a focus on circular economy (Bibak, auum, Campsider, Underdog, Twice, 900care, food (Yuka, Bon Vivant, Olala), and electrification (Zenride, Yespark, Bohr Énergie, Beev, Tilt, Daze).",
+                    "type": "text"
+                  },
+                  {
+                    "type": "hard_break"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "text": "Rebecca Ravenni",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "https://www.linkedin.com/in/rebecca-ravenni/"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "text": " ",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ]
+                  },
+                  {
+                    "text": "& ",
+                    "type": "text"
+                  },
+                  {
+                    "text": "Raphaele Leyendecker",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "link",
+                        "attrs": {
+                          "href": "https://www.linkedin.com/in/raphaeleleyendecker/"
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "text": " @Techstars Sustainability Paris",
+                    "type": "text",
+                    "marks": [
+                      {
+                        "type": "bold"
+                      }
+                    ]
+                  },
+                  {
+                    "text": " - French antenna of Techstars, Techstars Sustainability Paris invests worldwide in state-of-the-art Climate tech ventures (Tech and Sector agnostic) and support founders through three-month hybrid accelerator programs.",
+                    "type": "text"
+                  },
+                  {
+                    "type": "hard_break"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph"
+      }
+    ]
+  },
+  "eth_address_requirement": null,
+  "phone_number_requirement": null,
+  "solana_address_requirement": null,
+  "registration_questions": [],
+  "is_flagged": false
+}

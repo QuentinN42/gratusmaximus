@@ -1,0 +1,427 @@
+{
+  "api_id": "evt-1Ah5VleTtMDiezj",
+  "calendar": {
+    "access_level": "public",
+    "api_id": "cal-usGYEHfgGhwwnap",
+    "archived_at": null,
+    "avatar_url": "https://cdn.lu.ma/avatars-default/community_avatar_20.png",
+    "cover_image_url": "https://images.lumacdn.com/calendar-defaults/patterns/dots-100.png",
+    "description_short": null,
+    "fb_pixel_id": null,
+    "geo_city": null,
+    "geo_country": null,
+    "geo_latitude": null,
+    "geo_longitude": null,
+    "geo_region": null,
+    "google_measurement_id": null,
+    "instagram_handle": null,
+    "launch_status": null,
+    "linkedin_handle": null,
+    "luma_plus_active": false,
+    "name": "Personal",
+    "personal_user_api_id": "usr-9FROcrxpQobYVTe",
+    "refund_policy": null,
+    "slug": null,
+    "social_image_url": null,
+    "stripe_account_id": null,
+    "tax_config": null,
+    "team_api_id": null,
+    "tiktok_handle": null,
+    "timezone": null,
+    "tint_color": "#de3163",
+    "twitter_handle": null,
+    "verified_at": null,
+    "website": null,
+    "youtube_handle": null,
+    "payment_methods": [],
+    "charges_enabled": null,
+    "is_personal": true
+  },
+  "fb_pixel_id": null,
+  "google_measurement_id": null,
+  "farcaster_frame_enabled": false,
+  "stripe_account_id": null,
+  "payment_methods": [],
+  "event": {
+    "api_id": "evt-1Ah5VleTtMDiezj",
+    "calendar_api_id": "cal-usGYEHfgGhwwnap",
+    "cover_url": "https://images.lumacdn.com/event-covers/w0/8521616e-4233-49cc-8d18-c27a224ef5d0",
+    "end_at": "2024-10-02T12:30:00.000Z",
+    "event_type": "independent",
+    "hide_rsvp": false,
+    "location_type": "offline",
+    "name": "Inclusive Hour SISTA x DASTORE - Comment créer et gérer une relation commerciale avec un grand groupe ?",
+    "one_to_one": true,
+    "recurrence_id": null,
+    "show_guest_list": false,
+    "start_at": "2024-10-02T10:00:00.000Z",
+    "timezone": "Europe/Paris",
+    "url": "lzl1nxxz",
+    "user_api_id": "usr-9FROcrxpQobYVTe",
+    "visibility": "public",
+    "waitlist_enabled": false,
+    "can_register_for_multiple_tickets": false,
+    "duration_interval": "P0Y0M0DT2H30M0S",
+    "virtual_info": {
+      "has_access": false
+    },
+    "geo_longitude": "2.265451",
+    "geo_latitude": "48.723450",
+    "geo_address_info": {
+      "city": "Massy",
+      "type": "google",
+      "region": "Île-de-France",
+      "address": "93 Av. de Paris",
+      "country": "France",
+      "latitude": "48.72345",
+      "place_id": "ChIJYQ4c3yZ45kcRloImJC-Q9tU",
+      "longitude": "2.2654505",
+      "city_state": "Massy, Île-de-France",
+      "description": "",
+      "full_address": "93 Av. de Paris, 91300 Massy, France",
+      "mode": "shown"
+    },
+    "geo_address_visibility": "public"
+  },
+  "start_at": "2024-10-02T10:00:00.000Z",
+  "guest_data": {
+    "email": null,
+    "name": null,
+    "ticket_key": null,
+    "meeting_details": {
+      "approval_status": null,
+      "proxy_key": null
+    },
+    "approval_status": null,
+    "session_details": null,
+    "proxy_key": null,
+    "event_tickets": [],
+    "payments": []
+  },
+  "featured_guests": [],
+  "refund_policy": null,
+  "guest_count": 0,
+  "ticket_count": 0,
+  "hosts": [
+    {
+      "api_id": "usr-9FROcrxpQobYVTe",
+      "avatar_url": "https://images.lumacdn.com/avatars/ao/1b54d6db-e19a-4d2f-93e0-6383325ee91f",
+      "bio_short": "Committed to build a generation of diverse leaders \n",
+      "instagram_handle": "wearesista_",
+      "last_online_at": "2024-09-26T14:18:46.989Z",
+      "linkedin_handle": null,
+      "name": "SISTA",
+      "tiktok_handle": null,
+      "timezone": "Europe/Paris",
+      "twitter_handle": "wearesista",
+      "username": null,
+      "website": null,
+      "youtube_handle": "wearesista",
+      "is_visible": true,
+      "access_level": "manager"
+    }
+  ],
+  "referred_by": null,
+  "cover_image": {
+    "vibrant_color": null,
+    "colors": [
+      "#000e3f",
+      "#0503c7",
+      "#eee7e5",
+      "#382e2d"
+    ]
+  },
+  "sessions": [],
+  "ticket_types": [
+    {
+      "api_id": "evtticktyp-UyCrAc80fPRUeng",
+      "cents": null,
+      "currency": null,
+      "description": null,
+      "ethereum_token_requirements": [],
+      "event_api_id": "evt-1Ah5VleTtMDiezj",
+      "is_flexible": false,
+      "max_capacity": null,
+      "min_cents": null,
+      "name": "Standard",
+      "require_approval": false,
+      "type": "free",
+      "valid_end_at": null,
+      "valid_start_at": null,
+      "position": "5",
+      "num_tickets_registered": 32,
+      "currency_info": null,
+      "num_guests": 32
+    }
+  ],
+  "featured_infos": [
+    {
+      "type": "discover",
+      "avatar_url": "https://images.lumacdn.com/discovery/paris-icon.png",
+      "tint_color": "#ce8f5c",
+      "name": "Paris",
+      "name_raw": "Paris",
+      "path": "/paris?k=p"
+    }
+  ],
+  "categories": [],
+  "ticket_info": {
+    "price": null,
+    "is_free": true,
+    "max_price": null,
+    "is_sold_out": false,
+    "spots_remaining": null,
+    "is_near_capacity": false,
+    "require_approval": false,
+    "currency_info": null
+  },
+  "subscribed_to_calendar": false,
+  "event_invite": null,
+  "role": null,
+  "sold_out": false,
+  "locale": null,
+  "series_info": {
+    "require_rsvp_approval": false,
+    "series_registration_mode": null,
+    "session_price_cents": null,
+    "ticket_currency": "usd",
+    "ticket_price_cents": null
+  },
+  "theme_meta": {
+    "theme": "legacy"
+  },
+  "tint_color": "#000d3e",
+  "crypto_token_requirements": [],
+  "can_register_for_multiple_tickets": false,
+  "font_title": null,
+  "description_mirror": {
+    "type": "doc",
+    "content": [
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "INCLUSIVE HOURS",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "L’Inclusive Hour est un événement co-organisé par SISTA et Carrefour via son fonds Dastore. Cette rencontre vise à mettre en lumière des entrepreneurs du portefeuille de Dastore, ainsi que des représentants de Carrefour, autour d'un sujet crucial pour leur développement : \"Comment créer et gérer une relation commerciale avec un grand groupe\".",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Objectifs de l'événement",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bullet_list",
+        "content": [
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "text": "Éducation et partage d'expérience : Fournir aux entrepreneuses de SISTA les connaissances et les bonnes pratiques (do & don'ts) pour établir et maintenir une relation commerciale fructueuse avec une grande entreprise.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "text": "Leverage sur le Corporate Venture Capital (CVC) : Montrer comment les entrepreneurs peuvent tirer parti des ressources et des opportunités offertes par les fonds de CVC comme Dastore.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph"
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Intervenants",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "bullet_list",
+        "content": [
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "text": "Startups : Les dirigeants des startups partenaires de Carrefour et leurs équipes, telles que Stockly, Ida et Underdog, partageront leurs expériences et perspectives.",
+                    "type": "text"
+                  },
+                  {
+                    "type": "hard_break"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "list_item",
+            "content": [
+              {
+                "type": "paragraph",
+                "content": [
+                  {
+                    "text": "Représentants de Carrefour : Des responsables internes de Carrefour fourniront un aperçu de leurs attentes et processus internes.",
+                    "type": "text"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Public Cible",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Cet événement est ouvert au public et sera particulièrement bénéfique pour les fondatrices et fondateurs de startups cherchant à comprendre et à améliorer leurs relations commerciales avec de grandes entreprises.",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "content": [
+          {
+            "text": "Déroulé de l'événement ",
+            "type": "text",
+            "marks": [
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "type": "hard_break"
+          },
+          {
+            "type": "hard_break"
+          },
+          {
+            "text": "12H - 12H30 ",
+            "type": "text",
+            "marks": [
+              {
+                "type": "italic"
+              },
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "text": ": Accueil dans les locaux de Carrefour",
+            "type": "text"
+          },
+          {
+            "type": "hard_break"
+          },
+          {
+            "text": "12h30 - 13h30",
+            "type": "text",
+            "marks": [
+              {
+                "type": "italic"
+              },
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "text": " : Table ronde et échanges",
+            "type": "text"
+          },
+          {
+            "type": "hard_break"
+          },
+          {
+            "text": "13h30 - 14h30",
+            "type": "text",
+            "marks": [
+              {
+                "type": "italic"
+              },
+              {
+                "type": "bold"
+              }
+            ]
+          },
+          {
+            "text": " : Networking et cocktail déjeunatoire",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  },
+  "eth_address_requirement": null,
+  "phone_number_requirement": null,
+  "solana_address_requirement": null,
+  "registration_questions": [],
+  "is_flagged": false
+}

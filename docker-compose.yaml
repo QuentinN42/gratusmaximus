@@ -54,3 +54,15 @@ services:
     depends_on:
       maximus:
         condition: service_healthy
+
+  luma:
+    build:
+      context: .
+      args:
+        SERVICE: gratters/luma
+    environment:
+      MAXIMUS_URL: http://maximus:8080/
+      MAXIMUS_API_KEY: 00000000-0000-0000-0000-000000000001
+    depends_on:
+      maximus:
+        condition: service_healthy

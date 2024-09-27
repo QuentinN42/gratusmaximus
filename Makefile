@@ -24,7 +24,7 @@ lint: $(VENV) $(PROJS)
 	$(PYTHON) -m mypy $(SRC)
 
 test: $(VENV) $(PROJS)
-	$(PYTHON) -m pytest $(SRC)
+	$(PYTHON) -m pytest -vvv $(SRC)
 
 clean:
 	@echo $(PROJS)

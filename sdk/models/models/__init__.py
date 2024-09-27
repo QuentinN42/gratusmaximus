@@ -35,6 +35,8 @@ class Event(BaseModel):
 class Gratters(Enum):
     MEETUP = auto()
     EVENTBRITE = auto()
+    LUMA = auto()
+    SPLASHTHAT = auto()
 
 
 ALL_GRATTERS = {x.name for x in Gratters}
