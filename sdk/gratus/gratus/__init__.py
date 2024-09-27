@@ -3,8 +3,8 @@ import os
 import httpx
 from models import Event, Gratters, StorageStatus
 
-_HEALTH = 'health'
-_PUSH = 'v1/push'
+_HEALTH = '/health'
+_PUSH = '/v1/push'
 
 
 class Gratter:
@@ -17,6 +17,8 @@ class Gratter:
         gratter_type: Gratters,
     ) -> None:
         self.__remote = remote
+        while self.__remote.endswith('/'):
+            self.__remote = self.__remote[:-1]
         self.__api_key = api_key
         self.__gratter_type = gratter_type
 
