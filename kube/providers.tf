@@ -17,14 +17,5 @@ terraform {
   }
 }
 
-variable "k8s_config_path" {
-  type = string
-}
-
-variable "k8s_config_context" {
-  type = string
-}
-
 provider "kubernetes" {}
-
 provider "random" {}
