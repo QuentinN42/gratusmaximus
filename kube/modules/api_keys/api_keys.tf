@@ -6,6 +6,10 @@ variable "reqs" {
   type = set(string)
 }
 
+variable "kube_version" {
+  type = string
+}
+
 locals {
   name = "keyprovisioner"
   labels = {
@@ -68,8 +72,6 @@ resource "kubernetes_role_binding" "this" {
   }
 }
 
-data "kubernetes_server_version" "this" {}
-
 resource "kubernetes_job" "this" {
   metadata {
     name      = local.name
@@ -90,7 +92,7 @@ resource "kubernetes_job" "this" {
 
         container {
           name    = local.name
-          image   = "bitnami/kubectl:${data.kubernetes_server_version.this.version}"
+          image   = "bitnami/kubectl:${var.kube_version}"
           command = ["bash", "-c", file("${path.module}/keyprovisioner.sh")]
 
           env {

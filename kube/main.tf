@@ -3,6 +3,8 @@ variable "hash" {
   description = "tf apply -var \"hash=$(git rev-parse HEAD)\""
 }
 
+data "kubernetes_server_version" "this" {}
+
 module "ns" {
   source = "./modules/ns"
 
@@ -37,8 +39,9 @@ module "api_keys" {
   depends_on = [module.ns, module.maximus]
   source     = "./modules/api_keys"
 
-  ns   = module.ns.name
-  reqs = local.gratters
+  ns           = module.ns.name
+  reqs         = local.gratters
+  kube_version = data.kubernetes_server_version.this.version
 }
 
 module "gratters" {
