@@ -1,7 +1,0 @@
----
-name: gratusmaximus
-runtime:
-  name: python
-  options:
-    virtualenv: ../.venv
-description: Gratus Maximus deployed on kubernetes
