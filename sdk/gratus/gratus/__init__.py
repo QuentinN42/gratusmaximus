@@ -61,3 +61,27 @@ class Gratter:
     def healthy(self) -> bool:
         res = httpx.get(self.__remote + _HEALTH)
         return res.status_code == httpx.codes.OK
+
+
+def run_and_send(events: list[Event]) -> None:
+    """Simpe helper to run and send events.
+
+    ```python
+    from models import Event
+
+    def main() -> list[Event]:
+        return []
+
+    if __name__ == "__main__":
+        run_and_send(main())
+    ```
+    """
+    gratter = Gratter.from_env(Gratters.EVENTBRITE)
+    print("Gratter init success")
+
+    print(f"Found : {len(events)} events")
+
+    for event in events:
+        gratter.send(event)
+
+    print("Done")
