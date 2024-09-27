@@ -194,3 +194,7 @@ resource "kubernetes_ingress_v1" "ingress" {
     }
   }
 }
+
+output "svc_url" {
+  value = "http://${kubernetes_service.svc.metadata[0].name}.${var.ns}.svc.cluster.local"
+}

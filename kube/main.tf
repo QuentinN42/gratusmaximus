@@ -40,3 +40,13 @@ module "api_keys" {
   ns   = module.ns.name
   reqs = local.gratters
 }
+
+module "gratters" {
+  depends_on = [module.ns, module.api_keys]
+  source     = "./modules/gratters"
+
+  ns          = module.ns.name
+  hash        = var.hash
+  gratters    = local.gratters
+  maximus_url = module.maximus.svc_url
+}
