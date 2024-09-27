@@ -19,10 +19,25 @@ def slug(txt: str) -> str:
 
 _FOOD_WORDS = [
     'dejeuner',
-    'repas',
+    'repa',
+    'restauration',
     'collation',
     'apero',
-    'coctail',
+    'cocktail',
+    'buffet',
+    'cuisine',
+    'menu',
+    'bistrot',
+    'diner',
+    'brunch',
+    'nourriture',
+    'lunch',
+    'dinner',
+    'meal',
+    'food',
+    'restaurant',
+    'snack',
+    'breakfast',
 ]
 _FOOD_REGEX = re.compile(f'({"|".join(_FOOD_WORDS)})')
 
