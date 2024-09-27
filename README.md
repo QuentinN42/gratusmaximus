@@ -13,7 +13,8 @@ Never run out of free events to attend !
   - [x] Database storage
 - [x] gratter python sdk
 - [x] ICS frontend
-- [ ] implement gratters
+- [x] [Deploy a server](https://gratusmaximus.tools.escape.tech/v1/ics)
+- [ ] Implement gratters
 
 ## Software architecture
 
@@ -24,11 +25,11 @@ The software is divided into two main parts:
 
 ![main schema](schemas/main.excalidraw.svg)
 
-### Gratters
+## Gratters
 
 Gratters are simple scripts that can push events to Maximus. They are written in any language and can be run on any machine. The only requirement is that they can send a POST request to Maximus with an API key that is stored inside the database.
 
-#### Gratters todo list
+### Gratters todo list
 
 Here is the list of the implemented and planned gratters:
 
@@ -36,4 +37,3 @@ Here is the list of the implemented and planned gratters:
 - [ ] [Meetup](https://www.meetup.com/)
 - [ ] [Lu.ma](https://lu.ma/)
 - [ ] [SplashThat](https://splashthat.com)
-
