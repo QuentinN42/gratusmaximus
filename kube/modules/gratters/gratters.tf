@@ -16,7 +16,7 @@ variable "maximus_url" {
 
 locals {
   labels = {
-    for k in keys(local.labels) : k => {
+    for k in var.gratters : k => {
       "app.kubernetes.io/managed-by" = "terraform"
       "app.kubernetes.io/name"       = k
     }
@@ -24,7 +24,7 @@ locals {
 }
 
 resource "kubernetes_cron_job_v1" "this" {
-  for_each = var.gratters
+  for_each = local.labels
 
   metadata {
     namespace = var.ns
