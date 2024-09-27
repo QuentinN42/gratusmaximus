@@ -5,7 +5,7 @@ set -euo pipefail
 DOCKER_REPO="quentinn42/gratusmaximus"
 DOCKER_HASH="$(git rev-parse HEAD)"
 function push() {
-    image="${DOCKER_REPO}:$(echo ${1} | cut -d/ -f-1)-${DOCKER_HASH}"
+    image="${DOCKER_REPO}:$(echo ${1} | rev | cut -d/ -f1 | rev)-${DOCKER_HASH}"
     echo "Building and pushing ${1} to ${image}"
     docker build --push --build-arg "SERVICE=${1}" -t "${image}" .
 }

@@ -35,5 +35,5 @@ Here is the list of the implemented and planned gratters:
 
 - [x] [Eventbrite](https://www.eventbrite.com/)
 - [ ] [Meetup](https://www.meetup.com/)
-- [ ] [Lu.ma](https://lu.ma/)
+- [x] [Lu.ma](https://lu.ma/)
 - [ ] [SplashThat](https://splashthat.com)
