@@ -24,13 +24,18 @@ resource "kubernetes_role" "this" {
   rule {
     api_groups = [""]
     resources  = ["secrets"]
-    verbs      = ["list", "create"]
+    verbs      = ["list", "get", "patch", "create"]
   }
 
   rule {
     api_groups = [""]
     resources  = ["pods"]
-    verbs      = ["list", "get", "create"]
+    verbs      = ["list", "get"]
+  }
+  rule {
+    api_groups = [""]
+    resources  = ["pods/exec"]
+    verbs      = ["create"]
   }
 }
 
@@ -87,6 +92,11 @@ resource "kubernetes_job" "this" {
           name    = local.name
           image   = "bitnami/kubectl:${data.kubernetes_server_version.this.version}"
           command = ["bash", "-c", file("${path.module}/keyprovisioner.sh")]
+
+          env {
+            name  = "KEYS"
+            value = join("\n", var.reqs)
+          }
         }
       }
     }
