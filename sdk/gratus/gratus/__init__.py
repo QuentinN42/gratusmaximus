@@ -3,8 +3,8 @@ import os
 import httpx
 from models import Event, Gratters, StorageStatus
 
-_HEALTH = 'health'
-_PUSH = 'v1/push'
+_HEALTH = '/health'
+_PUSH = '/v1/push'
 
 
 class Gratter:
@@ -17,6 +17,8 @@ class Gratter:
         gratter_type: Gratters,
     ) -> None:
         self.__remote = remote
+        while self.__remote.endswith('/'):
+            self.__remote = self.__remote[:-1]
         self.__api_key = api_key
         self.__gratter_type = gratter_type
 
@@ -61,3 +63,27 @@ class Gratter:
     def healthy(self) -> bool:
         res = httpx.get(self.__remote + _HEALTH)
         return res.status_code == httpx.codes.OK
+
+
+def run_and_send(events: list[Event]) -> None:
+    """Simpe helper to run and send events.
+
+    ```python
+    from models import Event
+
+    def main() -> list[Event]:
+        return []
+
+    if __name__ == "__main__":
+        run_and_send(main())
+    ```
+    """
+    gratter = Gratter.from_env(Gratters.EVENTBRITE)
+    print("Gratter init success")
+
+    print(f"Found : {len(events)} events")
+
+    for event in events:
+        gratter.send(event)
+
+    print("Done")
