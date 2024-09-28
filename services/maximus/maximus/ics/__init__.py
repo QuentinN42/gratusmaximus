@@ -14,6 +14,8 @@ def create_event(model: DBEvent) -> icalendar.Event:
     full_description = f'{model.description}\n\nGrattet by: {model.gratter}.'
     if model.mandatory_registration:
         full_description += '\nWarning: This event requires registration.'
+    if model.url:
+        full_description += f'\nMore info: {model.url}'
     event = icalendar.Event(
         uid=str(model.id),
         summary=model.name,
