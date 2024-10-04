@@ -3,8 +3,13 @@ import typing
 import httpx
 
 
-def query(txt: str) -> dict[str, typing.Any]:
-    res = httpx.post('https://www.meetup.com/gql2', json={'query': txt})
+def query(
+    txt: str, variable: dict[str, typing.Any] | None = None
+) -> dict[str, typing.Any]:
+    res = httpx.post(
+        'https://www.meetup.com/gql2',
+        json={'query': txt, 'variables': variable},
+    )
     res.raise_for_status()
 
     resp = res.json()
