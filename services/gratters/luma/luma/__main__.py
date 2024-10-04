@@ -1,4 +1,4 @@
-from checks.checks import speak_food
+from checks.checks import speak_food, is_free
 from gratus import run_and_send
 from models import Event
 
@@ -11,7 +11,7 @@ def main() -> list[Event]:
     for _id in get_events_ids():
         try:
             evt = fetch_one(_id)
-            if speak_food(evt.model_dump_json()):
+            if speak_food(evt.model_dump_json()) and is_free(evt.model_dump_json()):
                 print(f'Event {evt.name} is accepted')
                 res.append(evt)
             else:

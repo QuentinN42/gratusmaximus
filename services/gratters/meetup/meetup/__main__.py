@@ -1,4 +1,4 @@
-from checks.checks import speak_food
+from checks.checks import speak_food, is_free
 from gratus import run_and_send
 from models import Event
 
@@ -13,7 +13,7 @@ def main() -> list[Event]:
     ret: list[Event] = []
     for d in collect():
         if (evt := parse(d)) is not None:
-            if speak_food(evt.model_dump_json()):
+            if speak_food(evt.model_dump_json()) and is_free(evt.model_dump_json()):
                 print(f'Event {evt.name} is accepted')
                 ret.append(evt)
             else:
