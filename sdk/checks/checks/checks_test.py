@@ -2,7 +2,7 @@ from string import ascii_lowercase, ascii_uppercase
 
 import pytest
 
-from checks.checks import slug, speak_food
+from checks.checks import slug, speak_food, is_free
 
 
 @pytest.mark.parametrize(
@@ -37,3 +37,45 @@ def test_speak_food_ok(txt: str) -> None:
 )
 def test_speak_food_no(txt: str) -> None:
     assert speak_food(txt) is False
+
+@pytest.mark.parametrize(
+    ('price', 'expected'),
+    [
+        ('venez à notre événement', True),
+        ('cet événement est gratuit', True),
+        ('$0', False),
+        ('€0', False),
+        ('$10', False),
+        ('€10', False),
+        ('0', True),
+        ('10', True),
+        ('Free event', True),
+        ('Événement gratuit', True),
+        ('Événement payant', False),
+        ('C\'est payant', False),
+        ('PAYANT', False),
+        ('Gratuit mais payant pour certains', False),
+        ('This event has a cost', False),
+        ('COST: $10', False),
+        ('No cost involved', False),
+        ('Free of cost', False),
+        ('10 euros', False),
+        ('5 dollars', False),
+        ('Prix : 20 euros', False),
+        ('Price in dollars: 15', False),
+        ('EURO', False),
+        ('DOLLAR', False),
+        ('Dîner gastronomique à 50€', False)
+    ],
+)
+def test_is_free(price: str, expected: bool) -> None:
+    assert is_free(price) == expected
+
+
+
+def test_is_free_food_with_cost():
+    assert is_free('Dîner gastronomique à 50€') == False
+    assert is_free('Cocktail party, tickets $20') == False
+    assert is_free('Free beer, entry fee 5 euros') == False
+
+

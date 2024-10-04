@@ -1,6 +1,6 @@
 import datetime
 
-from checks import speak_food
+from checks import speak_food, is_free
 from models import Event, Gratters, consitent_uuid
 from pydantic import BaseModel
 from pytz import timezone
@@ -64,6 +64,9 @@ class EBEvent(BaseModel):
 
     def should_record(self) -> bool:
         return speak_food(self.name + "\n" + self.summary)
+    
+    def is_free(self) -> bool:
+        return is_free(self.name + "\n" + self.summary)
 
 
 class EventsPaginated(BaseModel):
