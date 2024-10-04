@@ -1,5 +1,5 @@
 # Devlopement environement install
-SHELL=/bin/bash -euo pipefail -O globstar
+SHELL=/bin/bash -euo pipefail
 
 PROJS=$(patsubst %/pyproject.toml,%/.pyproject.toml,$(shell find . -name pyproject.toml))
 SRC=sdk services
