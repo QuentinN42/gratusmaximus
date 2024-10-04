@@ -63,10 +63,7 @@ class EBEvent(BaseModel):
         )
 
     def should_record(self) -> bool:
-        return speak_food(self.name + "\n" + self.summary)
-    
-    def is_free(self) -> bool:
-        return is_free(self.name + "\n" + self.summary)
+        return speak_food(self.name + "\n" + self.summary) and is_free(self.name + "\n" + self.summary)
 
 
 class EventsPaginated(BaseModel):
