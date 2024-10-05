@@ -1,8 +1,8 @@
 import logging
 
-from fastapi import Depends, FastAPI, Header, HTTPException, Security, status
+from fastapi import Depends, FastAPI, HTTPException, Security, status
 from fastapi.responses import PlainTextResponse
-from models import ALL_GRATTERS, Event, HealthResult, StorageStatus
+from models import Event, HealthResult, StorageStatus
 
 from maximus.database.inject import Session, get_session
 from maximus.database.schemas import DBEvent
@@ -24,7 +24,7 @@ def healthcheck() -> HealthResult:
     responses={
         status.HTTP_401_UNAUTHORIZED: {
             "model": None,
-            "description": "Invalid API key.",
+            "description": "API key is required",
         },
         status.HTTP_409_CONFLICT: {
             "model": None,
@@ -43,23 +43,12 @@ def healthcheck() -> HealthResult:
 def data_v1(
     event: Event,
     db: Session = Depends(get_session),
-    authenticated: bool = Security(auth),
-    gratter: str | None = Header(default=None, alias='x-gratter-type'),
+    gratter: str = Security(auth),
 ) -> StorageStatus:
-    if not authenticated:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid or missing API Key",
-        )
     if not gratter:
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Missing x-gratter-type header",
-        )
-    if gratter not in ALL_GRATTERS:
-        raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail=f"Gratter type not in list : {ALL_GRATTERS}",
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="API key is required",
         )
 
     logger.info("Received event %s", event)

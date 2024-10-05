@@ -14,13 +14,11 @@ class Gratter:
         self,
         remote: str,
         api_key: str,
-        gratter_type: Gratters,
     ) -> None:
         self.__remote = remote
         while self.__remote.endswith('/'):
             self.__remote = self.__remote[:-1]
         self.__api_key = api_key
-        self.__gratter_type = gratter_type
 
         if not self.healthy():
             print(f"[WRN] Unable to health check {self.__remote}")
@@ -28,7 +26,6 @@ class Gratter:
     @classmethod
     def from_env(
         cls,
-        gratter_type: Gratters,
     ) -> 'Gratter':
         url = os.getenv('MAXIMUS_URL')
         if not url:
@@ -39,7 +36,6 @@ class Gratter:
         return cls(
             remote=url,
             api_key=key,
-            gratter_type=gratter_type,
         )
 
     def send(self, event: Event) -> None:
@@ -48,7 +44,6 @@ class Gratter:
             self.__remote + _PUSH,
             headers={
                 'x-api-key': self.__api_key,
-                'x-gratter-type': self.__gratter_type.name,
                 'accept': 'application/json',
                 'Content-Type': 'application/json',
             },
@@ -78,7 +73,7 @@ def run_and_send(events: list[Event]) -> None:
         run_and_send(main())
     ```
     """
-    gratter = Gratter.from_env(Gratters.EVENTBRITE)
+    gratter = Gratter.from_env()
     print("Gratter init success")
 
     print(f"Found : {len(events)} events")

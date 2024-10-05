@@ -1,6 +1,6 @@
 import logging
 
-from fastapi import Depends, Security
+from fastapi import Depends, HTTPException, Security, status
 from fastapi.security import APIKeyHeader
 
 from maximus.database.inject import Session, get_session
@@ -14,10 +14,13 @@ api_key_header = APIKeyHeader(name="x-api-key", auto_error=False)
 def auth(
     api_key_header: str = Security(api_key_header),
     db: Session = Depends(get_session),
-) -> bool:
+) -> str:
     """Validate apikey against the DB."""
     if not api_key_header:
-        return False
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="API key is required",
+        )
 
     logger.debug('Validating API key')
 
@@ -28,4 +31,10 @@ def auth(
         )
         .first()
     )
-    return res is not None
+    if res is None:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="API key is required",
+        )
+
+    return res.name
