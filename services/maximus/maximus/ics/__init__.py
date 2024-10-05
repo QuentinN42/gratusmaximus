@@ -11,7 +11,7 @@ def format_date(date: datetime.datetime) -> str:
 
 
 def create_event(model: DBEvent) -> icalendar.Event:
-    full_description = f'{model.description}\n\nGrattet by: {model.gratter}.'
+    full_description = f'{model.description}\n\nGratted by: {model.gratter}.'
     if model.mandatory_registration:
         full_description += '\nWarning: This event requires registration.'
     if model.url:
