@@ -1,7 +1,7 @@
 import os
 
 import httpx
-from models import Event, Gratters, StorageStatus
+from models import Event, StorageStatus
 
 _HEALTH = '/health'
 _PUSH = '/v1/push'
