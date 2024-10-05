@@ -2,7 +2,7 @@ from string import ascii_lowercase, ascii_uppercase
 
 import pytest
 
-from checks.checks import slug, speak_food, is_free
+from checks.checks import is_free, slug, speak_food
 
 
 @pytest.mark.parametrize(
@@ -38,6 +38,7 @@ def test_speak_food_ok(txt: str) -> None:
 def test_speak_food_no(txt: str) -> None:
     assert speak_food(txt) is False
 
+
 @pytest.mark.parametrize(
     ('price', 'expected'),
     [
@@ -65,17 +66,10 @@ def test_speak_food_no(txt: str) -> None:
         ('Price in dollars: 15', False),
         ('EURO', False),
         ('DOLLAR', False),
-        ('Dîner gastronomique à 50€', False)
+        ('Dîner gastronomique à 50€', False),
+        ('Cocktail party, tickets $20', False),
+        ('Free beer, entry fee 5 euros', False),
     ],
 )
 def test_is_free(price: str, expected: bool) -> None:
     assert is_free(price) == expected
-
-
-
-def test_is_free_food_with_cost():
-    assert is_free('Dîner gastronomique à 50€') == False
-    assert is_free('Cocktail party, tickets $20') == False
-    assert is_free('Free beer, entry fee 5 euros') == False
-
-
