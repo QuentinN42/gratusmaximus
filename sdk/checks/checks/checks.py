@@ -62,6 +62,7 @@ speak_food = __build_match(
         'restaurant',
         'snack',
         'breakfast',
+        'drinks',
     ]
 )
 
