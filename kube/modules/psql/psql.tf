@@ -110,7 +110,7 @@ resource "kubernetes_deployment_v1" "deployment" {
 
           readiness_probe {
             exec {
-              command = ["pg_isready", "-U", "$POSTGRES_USER", "-d", "$POSTGRES_DB"]
+              command = ["pg_isready", "-U", local.pg.user, "-d", local.pg.db]
             }
 
             initial_delay_seconds = 5
@@ -120,7 +120,7 @@ resource "kubernetes_deployment_v1" "deployment" {
 
           liveness_probe {
             exec {
-              command = ["pg_isready", "-U", "$POSTGRES_USER", "-d", "$POSTGRES_DB"]
+              command = ["pg_isready", "-U", local.pg.user, "-d", local.pg.db]
             }
 
             initial_delay_seconds = 5
