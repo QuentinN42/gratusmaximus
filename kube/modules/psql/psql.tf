@@ -89,7 +89,7 @@ resource "kubernetes_deployment_v1" "deployment" {
           name = local.name
 
           volume_mount {
-            mount_path = "/var/lib/postgresql"
+            mount_path = "/pgdata"
             name       = local.name
             read_only  = false
           }
@@ -143,6 +143,10 @@ resource "kubernetes_deployment_v1" "deployment" {
           env {
             name  = "POSTGRES_PASSWORD"
             value = random_password.password.result
+          }
+          env {
+            name  = "PGDATA"
+            value = "/pgdata/data"
           }
 
           port {
