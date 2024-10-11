@@ -2,6 +2,11 @@ variable "ns" {
   type = string
 }
 
+variable "storage_class_name" {
+  type    = string
+  default = null
+}
+
 locals {
   name = "psql"
   labels = {
@@ -30,6 +35,8 @@ resource "kubernetes_persistent_volume_claim" "this" {
         storage = "5Gi"
       }
     }
+
+    storage_class_name = var.storage_class_name
   }
 }
 

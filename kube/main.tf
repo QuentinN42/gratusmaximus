@@ -3,6 +3,11 @@ variable "hash" {
   description = "tf apply -var \"hash=$(git rev-parse HEAD)\""
 }
 
+variable "storage_class_name" {
+  type    = string
+  default = null
+}
+
 data "kubernetes_server_version" "this" {}
 
 module "ns" {
@@ -16,6 +21,8 @@ module "db" {
   source     = "./modules/psql"
 
   ns = module.ns.name
+
+  storage_class_name = var.storage_class_name
 }
 
 module "maximus" {
