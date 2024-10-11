@@ -40,6 +40,7 @@ def slug(txt: str) -> str:
 speak_food = __build_match(
     [
         'dejeuner',
+        'pizza',
         'repas',
         'restauration',
         'collation',
