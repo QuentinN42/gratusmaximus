@@ -25,3 +25,5 @@ Here is the list of the implemented and planned gratters:
 - [x] [Meetup](https://www.meetup.com/)
 - [x] [Lu.ma](https://lu.ma/)
 - [ ] [SplashThat](https://splashthat.com)
+- [ ] [Station F](https://stationf.co/events)
+- [ ] [dev.events](https://dev.events/meetups/EU/FR/Paris)
