@@ -4,18 +4,6 @@ A free food finder with an ICS frontend.
 
 Never run out of free events to attend !
 
-## ToDo list
-
-- [x] Database setup
-- [x] Maximus accept and store events
-  - [x] Event model
-  - [x] API key
-  - [x] Database storage
-- [x] gratter python sdk
-- [x] ICS frontend
-- [x] [Deploy a server](https://gratusmaximus.tools.escape.tech/v1/ics)
-- [ ] Implement gratters
-
 ## Software architecture
 
 The software is divided into two main parts:
@@ -34,6 +22,6 @@ Gratters are simple scripts that can push events to Maximus. They are written in
 Here is the list of the implemented and planned gratters:
 
 - [x] [Eventbrite](https://www.eventbrite.com/)
-- [ ] [Meetup](https://www.meetup.com/)
+- [x] [Meetup](https://www.meetup.com/)
 - [x] [Lu.ma](https://lu.ma/)
 - [ ] [SplashThat](https://splashthat.com)
