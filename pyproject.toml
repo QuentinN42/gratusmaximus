@@ -1,20 +1,26 @@
-[build-system]
-build-backend = "setuptools.build_meta"
-requires = ["setuptools >= 61.0"]
-
-[tool.setuptools]
-py-modules = []
-
 [project]
-dependencies = []
 name = "gratus-maximus"
 requires-python = ">=3.11"
 version = "0.1"
+dependencies = [
+  "openai",
+  "httpx",
+  "pydantic",
+  "pytz",
+  "fastapi",
+  "sqlalchemy",
+  "psycopg2-binary",
+  "alembic",
+  "uvicorn",
+  "icalendar",
+]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
   "ruff",
   "mypy",
+  "pytest",
+  "types-icalendar",
 ]
 
 [tool.mypy]

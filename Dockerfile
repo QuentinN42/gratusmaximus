@@ -10,6 +10,7 @@ RUN <<EOF
 useradd --create-home --home-dir ${HOME} --uid $USER --shell /bin/bash $USER
 mkdir -p ${HOME}/.local/bin ${HOME}/.local/lib/python3.11/site-packages
 chown -R $USER:$USER ${HOME}
+pip install uv
 EOF
 USER $USER
 ENV SERVICE ${SERVICE}
@@ -20,19 +21,8 @@ FROM base as sources
 ARG SERVICE
 WORKDIR ${HOME}/sources
 
-COPY --chown=$USER:$USER sdk sdk
-COPY --chown=$USER:$USER services/${SERVICE}/pyproject.toml services/${SERVICE}/pyproject.toml
-RUN <<EOF
-find . -name pyproject.toml -exec bash -c \
-    'pip --disable-pip-version-check install --user --prefer-binary -e "$(dirname {})"' \;
-EOF
-COPY --chown=$USER:$USER services/${SERVICE} services/${SERVICE}
-
-
-# On local dev, just run the python files
-FROM base as dev
-ARG SERVICE
-WORKDIR ${HOME}/sources/services/${SERVICE}
-
-COPY --from=sources ${HOME}/ ${HOME}/
-CMD ["bash", "-c", "python -m \"$(echo \"${SERVICE}\" | rev | cut -d/ -f1 | rev)\""]
+COPY --chown=$USER:$USER pyproject.toml uv.lock ./
+RUN uv sync
+COPY --chown=$USER:$USER services/ services/
+COPY --chown=$USER:$USER sdk/ sdk/
+CMD ["bash", "-c", "uv run python -m services.${SERVICE}"]
