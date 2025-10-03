@@ -38,7 +38,7 @@ db-wipe:
 
 seed:
 	docker compose up maximus --build -d
-	docker compose exec maximus ./scripts/seed.py
+	docker compose exec maximus uv run python -m services.maximus.database.seed
 
 migrate: db uv.lock
 	uv run ./scripts/make_helpers.sh migrate

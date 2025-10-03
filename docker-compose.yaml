@@ -9,7 +9,7 @@ services:
     environment:
       DATABASE_URL: postgresql://postgres:password@db:5432/db
     healthcheck:
-      test: python -c 'import httpx; httpx.get("http://localhost:8080/health")'
+      test: uv run python -c 'import httpx; httpx.get("http://localhost:8080/health")'
       interval: 1s
       timeout: 1s
       retries: 3
@@ -35,7 +35,7 @@ services:
     build:
       context: .
       args:
-        SERVICE: gratters/meetup
+        SERVICE: meetup
     environment:
       MAXIMUS_URL: http://maximus:8080/
       MAXIMUS_API_KEY: 00000000-0000-0000-0000-000000000001
@@ -47,7 +47,7 @@ services:
     build:
       context: .
       args:
-        SERVICE: gratters/eventbrite
+        SERVICE: eventbrite
     environment:
       MAXIMUS_URL: http://maximus:8080/
       MAXIMUS_API_KEY: 00000000-0000-0000-0000-000000000001
@@ -59,7 +59,7 @@ services:
     build:
       context: .
       args:
-        SERVICE: gratters/luma
+        SERVICE: luma
     environment:
       MAXIMUS_URL: http://maximus:8080/
       MAXIMUS_API_KEY: 00000000-0000-0000-0000-000000000001

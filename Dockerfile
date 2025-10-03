@@ -1,6 +1,6 @@
 ARG DOCKERHUB_MIROR="docker.io"
 # https://hub.docker.com/_/python/tags?page=&page_size=&ordering=&name=3.11.
-FROM ${DOCKERHUB_MIROR}/library/python:3.11.9-slim-bookworm as base
+FROM ${DOCKERHUB_MIROR}/library/python:3.13.7-slim-bookworm as base
 ARG SERVICE
 
 ENV USER=1000

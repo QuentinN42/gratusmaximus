@@ -1,6 +1,6 @@
 [project]
 name = "gratus-maximus"
-requires-python = ">=3.11"
+requires-python = ">=3.13.0,<3.14.0"
 version = "0.1"
 dependencies = [
   "openai",
