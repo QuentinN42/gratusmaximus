@@ -1,5 +1,5 @@
 .venv
 *.egg-info
-__pycache__/**
+__pycache__
 tmp*
 .env
