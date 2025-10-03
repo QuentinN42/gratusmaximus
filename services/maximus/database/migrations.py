@@ -1,15 +1,14 @@
 import logging
 import os
 import sys
+from pathlib import Path
 from subprocess import PIPE, Popen
 
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-import services.maximus
-
-_alembic_dir = os.path.dirname(os.path.dirname(services.maximus.__file__))
+_alembic_dir = Path(__file__).parent.parent.parent.parent
 
 logger = logging.getLogger(__name__)
 

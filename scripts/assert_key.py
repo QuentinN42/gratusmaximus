@@ -3,9 +3,10 @@
 import argparse
 import uuid
 
-from maximus.database.migrations import get_session_maker
-from maximus.database.schemas import DBKeys
 from sqlalchemy.orm import Session
+
+from services.maximus.database.migrations import get_session_maker
+from services.maximus.database.schemas import DBKeys
 
 
 def main(db: Session, name: str) -> None:

@@ -8,7 +8,6 @@ from services.maximus.database.migrations import run_migrations
 from services.maximus.logs import EndpointFilter
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO)
 
 
 def start_server(port: int) -> None:

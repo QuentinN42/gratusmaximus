@@ -1,0 +1,19 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools >= 61.0"]
+
+[tool.setuptools]
+py-modules = ["eventbrite"]
+
+[project]
+dependencies = [
+  "pytz==2024.1",
+]
+name = "eventbrite"
+requires-python = ">=3.11"
+version = "0.1"
+
+[project.optional-dependencies]
+dev = [
+  "types-pytz==2024.2.0.20241003",
+]

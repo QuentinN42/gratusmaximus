@@ -5,3 +5,8 @@ Makefile
 .vscode
 schemas
 kube
+.venv
+*.egg-info
+__pycache__/**
+tmp*
+.env

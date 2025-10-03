@@ -10,8 +10,7 @@ function push() {
     docker build --push --build-arg "SERVICE=${1}" -t "${image}" .
 }
 
-push maximus
-(cd services && find gratters -maxdepth 1 -mindepth 1 -type d) |\
+(ls -1 services) |\
 while read service; do
     push "${service}"
 done

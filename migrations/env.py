@@ -4,7 +4,7 @@ from logging.config import fileConfig
 
 from alembic import context
 from alembic.script import write_hooks
-from maximus.database.schemas import metadata
+from services.maximus.database.schemas import metadata
 from sqlalchemy import engine_from_config, pool
 
 # this is the Alembic Config object, which provides

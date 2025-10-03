@@ -1,0 +1,21 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools >= 61.0"]
+
+[tool.setuptools]
+py-modules = []
+
+[project]
+dependencies = []
+name = "gratus-maximus"
+requires-python = ">=3.11"
+version = "0.1"
+
+[project.optional-dependencies]
+dev = [
+  "ruff",
+  "mypy",
+]
+
+[tool.mypy]
+plugins = "sqlalchemy.ext.mypy.plugin,pydantic.mypy"

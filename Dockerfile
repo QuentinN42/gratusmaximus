@@ -23,6 +23,5 @@ WORKDIR ${HOME}/sources
 
 COPY --chown=$USER:$USER pyproject.toml uv.lock ./
 RUN uv sync
-COPY --chown=$USER:$USER services/ services/
-COPY --chown=$USER:$USER sdk/ sdk/
+COPY --chown=$USER:$USER . .
 CMD ["bash", "-c", "uv run python -m services.${SERVICE}"]
